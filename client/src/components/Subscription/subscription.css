@@ -1,0 +1,60 @@
+.education-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #003366;
+    font-weight: bold;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666666;
+}
+
+.education-card {
+    border: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.education-card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #003366;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #333333;
+}
+
+.btn-lg {
+    padding: 10px 30px;
+    background-color: #003366;
+    color: white;
+    border-radius: 25px;
+}
+
+.btn-lg:hover {
+    background-color: #001f4d;
+}
+
+
+
+.education-card img {
+    width: 100%; /* Make the image take the full width of the card */
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+}
+
+.container {
+    padding-top: 1rem; /* Adjust top padding */
+    padding-bottom: 1rem; /* Adjust bottom padding */
+}

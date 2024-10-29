@@ -1,0 +1,71 @@
+/* Section.css */
+
+/* Light mode styles */
+.section-container {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.fixed-size-img {
+  width: auto;
+  height: 200px; /* Fixed height for larger screens */
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+@media (max-width: 767px) {
+  .fixed-size-img {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .fixed-size-img {
+    height: 120px; /* Further adjust height for extra small screens */
+  }
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.h222 {
+  color: red;
+}
+
+/* Dark mode styles */
+body.dark-mode .section-container {
+  background-color: #343a40; /* Dark background color for dark mode */
+}
+
+body.dark-mode .card {
+  background-color: #495057; /* Dark card background */
+  border: 1px solid #6c757d; /* Optional: add a border for better visibility */
+}
+
+body.dark-mode .card-title {
+  color: #f8f9fa; /* Light color for card titles in dark mode */
+}
+
+body.dark-mode .card-text {
+  color: #dee2e6; /* Light color for card text in dark mode */
+}
+
+body.dark-mode .h222 {
+  color: #ff6f6f; /* Optional: lighter color for better visibility in dark mode */
+}

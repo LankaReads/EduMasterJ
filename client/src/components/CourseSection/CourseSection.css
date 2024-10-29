@@ -1,0 +1,67 @@
+/* Styling the entire course section */
+.course-section {
+    background-color: #ccd0d4; /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Course item styling */
+  .course-item {
+    transition: transform 0.2s ease;
+  }
+  .course-item:hover {
+    transform: translateY(-5px); /* Adds a hover effect to lift the card */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adds a shadow on hover */
+  }
+  
+  /* Course image */
+  .course-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Small shadow for the image */
+  }
+  
+  /* Progress bar custom styles */
+  .progress-bar-custom .progress-bar {
+    background-color: #28a745 !important; /* Bootstrap success green */
+  }
+  
+  .course-details {
+    flex: 1;
+  }
+  
+  .course-title h5 {
+    color: #343a40; /* Dark text color for the course title */
+  }
+  
+  @media (max-width: 768px) {
+    .course-item {
+      margin-bottom: 20px; /* Spacing for mobile view */
+    }
+  }
+  .btn-creative {
+    background-color: #261ac9; /* Custom color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  }
+  
+  .btn-creative:hover {
+    background-color: #524dc2; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+  
+  .course-item {
+    position: relative; /* To enable positioning for hover effects */
+    overflow: hidden; /* Hide overflow to make effects cleaner */
+  }
+  
+  .course-item:hover .btn-creative {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+  }
+  

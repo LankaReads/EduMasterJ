@@ -1,0 +1,39 @@
+.feature-background {
+    background-color: #f8f9fa; /* Light background for the section */
+}
+
+.feature-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff; /* Blue color for the main title */
+}
+
+.feature-card {
+    background-color: white;
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px; /* Limiting the card width for better centering */
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+    align-items: center !important;
+    
+    color: #007bff; /* Blue icon color */
+}
+
+h4 {
+    color: #007bff; /* Blue color for feature titles */
+    font-weight: 600;
+}
+
+p {
+    color: #666;
+    font-size: 1rem;
+}
