@@ -12,9 +12,9 @@ const Section = () => {
             <div className="card shadow-lg border-0">
               <img src="https://picsum.photos/400/300?random=1" className="card-img-top fixed-size-img" alt="AI in Diagnosis" />
               <div className="card-body">
-                <h5 className="card-title text-success">AI in Diagnosis</h5><br />
+                <h5 className="card-title text-success">Home</h5><br />
                 <p className="card-text">Revolutionizing diagnostic processes with AI technology.</p>
-                <a href="/ai-diagnosis" className="btn btn-success">Learn More</a>
+                <a href="/" className="btn btn-success">Visit home</a>
               </div>
             </div>
           </div>
@@ -22,9 +22,9 @@ const Section = () => {
             <div className="card shadow-lg border-0">
               <img src="https://picsum.photos/400/300?random=2" className="card-img-top fixed-size-img" alt="Telemedicine" />
               <div className="card-body">
-                <h5 className="card-title text-success">Telemedicine</h5><br />
+                <h5 className="card-title text-success">About</h5><br />
                 <p className="card-text">Connecting patients with doctors from anywhere.</p>
-                <a href="/telemedicine" className="btn btn-success">Explore Telemedicine</a>
+                <a href="/telemedicine" className="btn btn-success">About</a>
               </div>
             </div>
           </div>
@@ -32,9 +32,9 @@ const Section = () => {
             <div className="card shadow-lg border-0">
               <img src="https://picsum.photos/400/300?random=3" className="card-img-top fixed-size-img" alt="AI in Research" />
               <div className="card-body">
-                <h5 className="card-title text-success">AI in Research</h5> <br />
+                <h5 className="card-title text-success">Projects</h5> <br />
                 <p className="card-text">Accelerating medical research with artificial intelligence.</p>
-                <a href="/ai-research" className="btn btn-success">View Research</a>
+                <a href="/ai-research" className="btn btn-success">Projects</a>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ const Section = () => {
             <div className="card shadow-lg border-0">
               <img src="https://picsum.photos/400/300?random=4" className="card-img-top fixed-size-img" alt="Patient Care" />
               <div className="card-body">
-                <h5 className="card-title text-success">Patient Care</h5> <br />
+                <h5 className="card-title text-success">Programs</h5> <br />
                 <p className="card-text">Enhancing patient care through AI solutions.</p>
                 <a href="/patient-care" className="btn btn-success">Learn More</a>
               </div>
@@ -52,9 +52,9 @@ const Section = () => {
             <div className="card shadow-lg border-0">
               <img src="https://picsum.photos/400/300?random=5" className="card-img-top fixed-size-img" alt="Healthcare Apps" />
               <div className="card-body">
-                <h5 className="card-title text-success">Healthcare Apps</h5> <br />
+                <h5 className="card-title text-success">Blogs</h5> <br />
                 <p className="card-text">Innovative applications improving healthcare delivery.</p>
-                <a href="/healthcare-apps" className="btn btn-success">Explore Apps</a>
+                <a href="/healthcare-apps" className="btn btn-success">blogs</a>
               </div>
             </div>
           </div>

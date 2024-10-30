@@ -1,65 +1,27 @@
-/* General Navbar Styling */
-.custom-navbar {
-  background-color: #f8f9fa;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 1rem 0;
-}
-.bg-body-secondary{
-
-    background-color: rgb(179, 226, 245) !important;
-
-}
-
-.custom-nav-links .nav-link {
+.nav-link-custom {
+  color: #007bff !important; /* Bootstrap blue color */
   font-weight: bold;
-  color: #003366;
-  padding: 0.75rem 1.25rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.custom-nav-links .nav-link:hover {
-  color: #0066cc;
-  transform: scale(1.05);
-  text-decoration: underline;
-}
-
-/* Search and Button Styling */
-.custom-search {
-  max-width: 200px;
-  border-radius: 50px;
-}
-
-.custom-button {
-  margin-left: 10px;
-  border-radius: 50px;
-  color: #003366;
-  border-color: #003366;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.custom-button:hover {
-  background-color: #0066cc;
-  color: #ffffff;
-}
-
-/* Dropdown Toggle */
-.custom-dropdown {
+  border-radius: 10px;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
-  color: #003366;
 }
 
-.custom-dropdown:hover {
-  color: #0066cc;
+.nav-link-custom i {
+  color: #007bff; /* Icon color matching link */
+  
 }
 
-/* Logo Styling */
-.logo1 {
-  width: 60px;
-  height: auto;
-  transition: transform 0.3s ease;
+.nav-link-custom:hover {
+  background-color: #ecf8ff !important; /* Light blue background on hover */
+  color: #ffffff !important; /* Darker blue text on hover */
 }
 
-.logo1:hover {
-  transform: scale(1.1);
+.nav-link-custom i:hover {
+  color: #ffffff ; /* Darker blue icon color on hover */
+}
+
+.bgg-white{
+  background-color: rgb(197, 225, 238) !important;
+  opacity: 0.9;
 }
