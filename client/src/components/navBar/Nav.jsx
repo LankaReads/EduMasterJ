@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Modal from 'react-bootstrap/Modal';
-import { useNavigate } from 'react-router-dom';  // Updated import for v6
+import { useNavigate } from 'react-router-dom';
 import logo1 from "../../img/logo1.png";
 import './Nav.css';
 
@@ -19,9 +19,8 @@ function NavBar() {
   const [adminPassword, setAdminPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [adminErrorMessage, setAdminErrorMessage] = useState('');
-  const navigate = useNavigate();  // useNavigate hook for navigation
+  const navigate = useNavigate();
 
-  // Teacher Portal
   const handleTeacherPortalClick = () => {
     setShowTeacherModal(true);
   };
@@ -36,13 +35,12 @@ function NavBar() {
   const handleLoginTeacher = () => {
     if (teacherID === '001' && teacherPassword === 'teacher123') {
       setShowTeacherModal(false);
-      navigate('/teacherdashboard');  // Navigate to teacher portal if credentials are correct
+      navigate('/teacherdashboard');
     } else {
       setErrorMessage('Invalid ID or Password');
     }
   };
 
-  // Admin Panel
   const handleAdminPanelClick = () => {
     setShowAdminModal(true);
   };
@@ -57,7 +55,7 @@ function NavBar() {
   const handleLoginAdmin = () => {
     if (adminID === 'admin001' && adminPassword === 'admin123') {
       setShowAdminModal(false);
-      navigate('/admindashboard');  // Navigate to admin dashboard if credentials are correct
+      navigate('/admindashboard');
     } else {
       setAdminErrorMessage('Invalid ID or Password');
     }
@@ -66,38 +64,33 @@ function NavBar() {
   return (
     <>
       <div className='container-fluid bg-body-secondary'>
-        <Navbar expand="md">
+        <Navbar expand="md" className="py-3">
           <Container fluid>
             <Navbar.Brand href="/"><img src={logo1} alt="" className='logo1' /></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
                 className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: '180px' }}
                 navbarScroll
+                style={{ maxHeight: '180px' }}
               >
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/about">About</Nav.Link>
-                <Nav.Link href="/programs">Programs</Nav.Link>
-                <Nav.Link href="/blogs">blogs</Nav.Link>
-                <Nav.Link href="/researchers">Proposals</Nav.Link>
-                <Nav.Link href="/projects">Ongoing Projects</Nav.Link>
+                <Nav.Link href="/" className="px-3 text-primary">Home</Nav.Link>
+                <Nav.Link href="/about" className="px-3 text-primary">About</Nav.Link>
+                <Nav.Link href="/courses" className="px-3 text-primary">Programs</Nav.Link>
+                <Nav.Link href="/blogs" className="px-3 text-primary">Blogs</Nav.Link>
               </Nav>
-              <Form className="d-flex flex-row align-items-center">
+              <Form className="d-flex flex-row align-items-center me-3">
                 <Form.Control
                   type="search"
                   placeholder="Search"
                   className="me-2"
                   aria-label="Search"
+                  style={{ padding: '8px 12px' }}
                 />
-                <Button variant="outline-info">Search</Button>
+                <Button variant="outline-info" className="me-3">Search</Button>
 
-                <Dropdown drop='down' align="end" width="20" height="20" >
-                  <Dropdown.Toggle variant="outline-info" id="dropdown-basic" style={{
-                    display: "flex", 
-                    justifyContent:"space-between",
-                    alignItems: "center",
-                  }} className='ml-3'>
+                <Dropdown drop='down' align="end">
+                  <Dropdown.Toggle variant="outline-info" id="dropdown-basic" className="d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
                       <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                     </svg>

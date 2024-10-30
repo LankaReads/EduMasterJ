@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Overview.css';
-import { FaGraduationCap, FaChalkboardTeacher, FaUniversity, FaUserGraduate } from 'react-icons/fa';
+import { FaHeartbeat, FaUserMd, FaLaptopMedical, FaStethoscope } from 'react-icons/fa';
 
 function Overview() {
     return (
@@ -9,30 +9,30 @@ function Overview() {
             <div className="row text-center">
                 <div className="col-lg-3 col-md-6 col-sm-12 mb-4 d-flex justify-content-center">
                     <div className="overview-card p-4 text-center">
-                        <FaGraduationCap size={50} className="icon mb-3" />
-                        <h3 className="stat-number">250,000+</h3>
-                        <p className="stat-text">Graduates</p>
+                        <FaHeartbeat size={50} className="icon mb-3" />
+                        <h3 className="stat-number">300,000+</h3>
+                        <p className="stat-text">Patients Served</p>
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-12 mb-4 d-flex justify-content-center">
                     <div className="overview-card p-4 text-center">
-                        <FaChalkboardTeacher size={50} className="icon mb-3" />
-                        <h3 className="stat-number">15,000+</h3>
-                        <p className="stat-text">Expert Tutors</p>
+                        <FaUserMd size={50} className="icon mb-3" />
+                        <h3 className="stat-number">20,000+</h3>
+                        <p className="stat-text">Healthcare Professionals</p>
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-12 mb-4 d-flex justify-content-center">
                     <div className="overview-card p-4 text-center">
-                        <FaUniversity size={50} className="icon mb-3" />
-                        <h3 className="stat-number">500+</h3>
-                        <p className="stat-text">Partner Institutions</p>
+                        <FaLaptopMedical size={50} className="icon mb-3" />
+                        <h3 className="stat-number">600+</h3>
+                        <p className="stat-text">AI Tools Implemented</p>
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-12 mb-4 d-flex justify-content-center">
                     <div className="overview-card p-4 text-center">
-                        <FaUserGraduate size={50} className="icon mb-3" />
-                        <h3 className="stat-number">100+</h3>
-                        <p className="stat-text">Certified Programs</p>
+                        <FaStethoscope size={50} className="icon mb-3" />
+                        <h3 className="stat-number">150+</h3>
+                        <p className="stat-text">Medical Programs</p>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '@/components/Footer/footer';
 import NavBar from '@/components/navBar/Nav';
+import ProgramNav from '@/components/ProgramNav/ProgramNav';
 
 const projectsData = [
     {
@@ -26,6 +27,7 @@ const Projects = () => {
     return (
         <>
         <NavBar/>
+        <ProgramNav/>
         <div>
             <header className="bg-success text-white text-center py-4">
                 <h1>Ongoing Projects</h1>
