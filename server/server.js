@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const courseRoutes = require('./routes/courseRoutes'); // Import course routes
+const blogRoutes = require('./routes/blogRoutes');
+const postRoutes = require('./routes/postRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -19,22 +21,18 @@ app.use(cors({
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Establish database connection
-mongoose.connect(MONGO_URI)
-    .then(() => console.log('MongoDB Connected'))
-    .catch((e) => console.error('MongoDB connection error:', e));
-
 // Routes configuration
+app.use('/api/blogs', blogRoutes);
+app.use('/api/posts', postRoutes); // Updated route path to '/api/posts'
+
+// Authentication routes
 app.use("/auth", authRoutes);
 app.use("/api/courses", courseRoutes); // Correctly set up course routes
-// Create a database connection
-mongoose.connect(MONGO_URI, )
-.then(() => {
-    console.log('MongoDB Connected');
-})
-.catch((error) => {
-    console.error('MongoDB connection error:', error);
-});
+
+// Establish database connection
+mongoose.connect(MONGO_URI,)
+    .then(() => console.log('MongoDB Connected'))
+    .catch((error) => console.error('MongoDB connection error:', error));
 
 // Generic error handler for server-side errors
 app.use((err, req, res, next) => {

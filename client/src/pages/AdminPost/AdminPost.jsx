@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '@/components/navBar/Nav';
 import Footer from '@/components/Footer/footer';
 
-function AdminBlog() {
+function AdminPosts() {
     const [posts, setPosts] = useState([]);
     const [formData, setFormData] = useState({ title: '', content: '', image: '', author: '' });
     const [editingPostId, setEditingPostId] = useState(null);
@@ -10,7 +10,7 @@ function AdminBlog() {
     // Fetch posts function
     const fetchPosts = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/blogs');
+            const response = await fetch('http://localhost:5000/api/posts');
             const data = await response.json();
             setPosts(data);
         } catch (error) {
@@ -33,13 +33,13 @@ function AdminBlog() {
         e.preventDefault();
         try {
             if (editingPostId) {
-                await fetch(`http://localhost:5000/api/blogs/${editingPostId}`, {
+                await fetch(`http://localhost:5000/api/posts/${editingPostId}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData),
                 });
             } else {
-                await fetch('http://localhost:5000/api/blogs', {
+                await fetch('http://localhost:5000/api/posts', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData),
@@ -59,14 +59,15 @@ function AdminBlog() {
         setFormData({ title: post.title, content: post.content, image: post.image, author: post.author });
     };
 
+    // Handle deleting a post
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+            const response = await fetch(`http://localhost:5000/api/posts/${id}`, {
                 method: 'DELETE',
             });
             
             if (!response.ok) {
-                throw new Error('Failed to delete the blog post');
+                throw new Error('Failed to delete the post');
             }
     
             // Refresh the posts list after deletion
@@ -75,17 +76,16 @@ function AdminBlog() {
             console.error("Failed to delete post:", error);
         }
     };
-    
 
     return (
         <>
             <NavBar />
             <div className="container my-5">
-                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>Admin - Manage Blog Posts</h1>
+                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>Admin - Manage Posts</h1>
 
-                {/* Blog Post Form */}
+                {/* Post Form */}
                 <div className="card mb-5">
-                    <div className="card-header">{editingPostId ? 'Edit Blog Post' : 'Create New Blog Post'}</div>
+                    <div className="card-header">{editingPostId ? 'Edit Post' : 'Create New Post'}</div>
                     <div className="card-body">
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
@@ -123,8 +123,8 @@ function AdminBlog() {
                     </div>
                 </div>
 
-                {/* Table of Blog Posts */}
-                <h2 className="text-center mb-4">Existing Blog Posts</h2>
+                {/* Table of Posts */}
+                <h2 className="text-center mb-4">Existing Posts</h2>
                 <div className="table-responsive">
                     <table className="table table-striped table-bordered">
                         <thead>
@@ -171,4 +171,4 @@ function AdminBlog() {
     );
 }
 
-export default AdminBlog;
+export default AdminPosts;

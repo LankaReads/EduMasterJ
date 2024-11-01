@@ -1,16 +1,24 @@
-import Footer from '@/components/Footer/footer';
-import NavBar from '@/components/navBar/Nav';
 import React, { useState, useEffect } from 'react';
+import Footer from '@/components/Footer/Footer';
+import NavBar from '@/components/NavBar/Nav';
 
-function Blogs() {
-    const [expandedPostId, setExpandedPostId] = useState(null);
+function Posts() {
     const [posts, setPosts] = useState([]);
+    const [expandedPostId, setExpandedPostId] = useState(null);
 
+    // Fetch posts from server
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch('http://localhost:5000/api/blogs');
-            const data = await response.json();
-            setPosts(data);
+            try {
+                const response = await fetch('http://localhost:5000/api/posts');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setPosts(data);
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
         };
         fetchPosts();
     }, []);
@@ -22,28 +30,32 @@ function Blogs() {
     return (
         <>
             <NavBar />
-            <div className="jumbotron jumbotron-fluid text-white text-center" style={{ backgroundColor: 'lightblue', padding: '100px 0' }}>
-                <div className="container">
-                    <h1 className="display-4">Join Us Today!</h1>
-                    <p className="lead">Become a part of our reading community.</p>
-                </div>
-            </div>
             <div className="container my-5">
-                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>Our Blog</h1>
+                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>All Posts</h1>
                 <div className="row">
                     {posts.length > 0 ? (
                         posts.map((post) => (
-                            <div key={post._id} className="col-12 mb-4">
+                            <div key={post._id} className="col-md-6 mb-4">
                                 <div className="card h-100 shadow-sm">
                                     <img src={post.image} className="card-img-top" alt={post.title} />
                                     <div className="card-body">
                                         <h5 className="card-title">{post.title}</h5>
                                         <p className="card-text">
-                                            {expandedPostId === post._id ? post.content : post.content.substring(0, 100) + '...'}
+                                            {expandedPostId === post._id ? post.content : `${post.content.substring(0, 100)}...`}
                                         </p>
                                         <p className="card-text">
-                                            <small className="text-muted">By {post.author} on {post.date}</small>
+                                            <small className="text-muted">By {post.author} on {new Date(post.date).toLocaleDateString()}</small>
                                         </p>
+                                        {post.links && post.links.length > 0 && (
+                                            <div>
+                                                <h6>Resources:</h6>
+                                                <ul>
+                                                    {post.links.map((link, index) => (
+                                                        <li key={index}><a href={link} target="_blank" rel="noopener noreferrer">{link}</a></li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="card-footer d-flex justify-content-between align-items-center">
                                         <button
@@ -58,7 +70,7 @@ function Blogs() {
                             </div>
                         ))
                     ) : (
-                        <p className="text-center">No blog posts available.</p>
+                        <p className="text-center">No posts available.</p>
                     )}
                 </div>
             </div>
@@ -67,4 +79,4 @@ function Blogs() {
     );
 }
 
-export default Blogs;
+export default Posts;
