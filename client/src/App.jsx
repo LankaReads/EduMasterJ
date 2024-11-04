@@ -24,6 +24,7 @@ import Posts from './pages/Post/Post';
 import AdminPostManagement from './pages/AdminPost/AdminPost';
 import AdminPostForm from './pages/AdminPost/AdminPost';
 import AdminPosts from './pages/AdminPost/AdminPost';
+import ContactForm from './pages/Contact/Contact';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path='/projects' element={<Projects />} />
         <Route path='/adminposts' element={<AdminPosts />} />        
         <Route path='/post' element={<Posts />} />
+        <Route path='/contact' element={<ContactForm />} />
       </Routes>
     </AuthProvider>
   );
