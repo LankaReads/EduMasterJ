@@ -6,6 +6,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import ScrollTop from '../../components/Scroll-top/ScrollTop';
 import NavBar from '../../components/navBar/Nav';
 import PersonIntro from '@/components/PersonIntro/PersonIntro';
+import Section from '@/components/Section/Section';
+import Subscription from '@/components/Subscription/subscription';
+
 
 function About() {
   return (
@@ -47,6 +50,9 @@ function About() {
     </p>
   </div>
 </div>
+
+<Section/>
+<Subscription/>
 
 </div>
 
