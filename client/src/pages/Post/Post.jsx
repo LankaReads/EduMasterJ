@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '@/components/Footer/Footer';
 import NavBar from '@/components/NavBar/Nav';
+import Section from '@/components/Section/Section';
+import Subscription from '@/components/Subscription/subscription';
+
 
 function Posts() {
     const [posts, setPosts] = useState([]);
@@ -31,15 +34,15 @@ function Posts() {
         <>
             <NavBar />
             <div className="container my-5">
-                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>All Posts</h1>
+                <h1 className="text-center mb-5" style={{ color: '#007BFF' }}>All Posts</h1>
                 <div className="row">
                     {posts.length > 0 ? (
                         posts.map((post) => (
                             <div key={post._id} className="col-md-6 mb-4">
-                                <div className="card h-100 shadow-sm">
+                                <div className="card h-100 shadow-sm border-0">
                                     <img src={post.image} className="card-img-top" alt={post.title} />
                                     <div className="card-body">
-                                        <h5 className="card-title">{post.title}</h5>
+                                        <h5 className="card-title text-primary">{post.title}</h5>
                                         <p className="card-text">
                                             {expandedPostId === post._id ? post.content : `${post.content.substring(0, 100)}...`}
                                         </p>
@@ -48,10 +51,14 @@ function Posts() {
                                         </p>
                                         {post.links && post.links.length > 0 && (
                                             <div>
-                                                <h6>Resources:</h6>
+                                                <h6 className="text-primary">Resources:</h6>
                                                 <ul>
                                                     {post.links.map((link, index) => (
-                                                        <li key={index}><a href={link} target="_blank" rel="noopener noreferrer">{link}</a></li>
+                                                        <li key={index}>
+                                                            <a href={link} target="_blank" rel="noopener noreferrer" className="text-primary">
+                                                                {link}
+                                                            </a>
+                                                        </li>
                                                     ))}
                                                 </ul>
                                             </div>
@@ -60,7 +67,7 @@ function Posts() {
                                     <div className="card-footer d-flex justify-content-between align-items-center">
                                         <button
                                             className="btn btn-outline-primary"
-                                            style={{ borderColor: '#f42d00', color: '#f42d00' }}
+                                            style={{ borderColor: '#007BFF', color: '#007BFF' }}
                                             onClick={() => handleReadMore(post._id)}
                                         >
                                             {expandedPostId === post._id ? 'Show Less' : 'Read More'}
@@ -73,6 +80,10 @@ function Posts() {
                         <p className="text-center">No posts available.</p>
                     )}
                 </div>
+
+                    <Section/>
+                    <Subscription/>
+
             </div>
             <Footer />
         </>
