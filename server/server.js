@@ -8,6 +8,8 @@ const courseRoutes = require('./routes/courseRoutes'); // Import course routes
 const blogRoutes = require('./routes/blogRoutes');
 const postRoutes = require('./routes/postRoutes');
 const contactRoute = require('./routes/contactRoutes');
+const researchRouter = require('./routes/researchRouter');
+const projectRouter = require('./routes/projectRouter');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,6 +35,8 @@ app.use('/api/contact', contactRoute);
 // Authentication routes
 app.use("/auth", authRoutes);
 app.use("/api/courses", courseRoutes); // Correctly set up course routes
+app.use('/api/research', researchRouter);
+app.use('/api/projects', projectRouter);
 
 // Establish database connection
 mongoose.connect(MONGO_URI,)

@@ -18,7 +18,7 @@ const Programs = ({ addCourse, enrolledCourses = [], removeCourse }) => {
       try {
         const response = await fetch(`http://localhost:5000/api/courses`); // Ensure the endpoint is correct
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Network response was not ok')
         }
         const data = await response.json();
         setCourses(data); // Update the state with fetched courses
