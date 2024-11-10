@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="background-image image2"></div>
 
       {/* Centered Title */}
-      <div className="hero-title">
+      <div className="hero-title mt-20">
         <h1 className="welcome">AI in Medicine</h1>
         <h3 className="intro">Your Professional AI Solution partner</h3>
         

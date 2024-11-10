@@ -26,18 +26,18 @@ function Courses() {
   return (
     <>
       <NavBar />
-      <ProgramNav />
-      <div className="container-fluid d-flex justify-content-center py-4">
-        <div className="course-section">
+      {/* <ProgramNav /> */}
+      <div className="container-fluid d-flex justify-content-center align-items-center py-4">
+        <div className="course-section d-flex justfy-items-center text-center">
           <div className="course-header text-center mb-4">
-            <h2 className="text-blue">My Enrolled Courses</h2>
+            {/* <h2 className="text-blue">My Enrolled Courses</h2> */}
           </div>
 
           {/* Pass the enrolledCourses and removeCourse function to CourseSection */}
           <CourseSection 
             enrolledCourses={enrolledCourses} 
             removeCourse={removeCourse} 
-          />
+          className="d-flex justify-content-center align-items-center" />
         </div>
       </div>
       <Footer />

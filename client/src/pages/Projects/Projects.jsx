@@ -25,7 +25,7 @@ const Projects = () => {
     return (
         <>
             <NavBar />
-            <ProgramNav />
+            {/* <ProgramNav /> */}
             <div>
                 <header className="bg-success text-white text-center py-4">
                     <h1>Ongoing Projects</h1>

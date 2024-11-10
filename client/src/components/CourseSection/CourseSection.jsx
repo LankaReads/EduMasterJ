@@ -33,9 +33,9 @@ const CourseSection = ({ enrolledCourses = [], removeCourse }) => {
 
   return (
     <>
-      <div className="container-fluid main-container">
+      <div className="container-fluid main-container item-center d-flex justify-content-center">
         <div className="row">
-          <div className="col-md-9 col-lg-8">
+          <div className="col-md-9 col-lg-8 align-items-center">
             <div className="programs-section py-4">
               <h3 className="text-center text-dark mb-4">Available Programs</h3>
               <div className="row">

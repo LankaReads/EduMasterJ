@@ -48,7 +48,7 @@ const Programs = ({ addCourse, enrolledCourses = [], removeCourse }) => {
   return (
     <>
       <NavBar />
-      <ProgramNav />
+      {/* <ProgramNav /> */}
       <div className="container-fluid d-flex justify-content-center py-4">
         <div className="programs-section">
           <h2 className="text-center text-blue mb-4">Available Programs</h2>
