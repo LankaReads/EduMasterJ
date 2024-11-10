@@ -26,12 +26,13 @@ const Projects = () => {
         <>
             <NavBar />
             {/* <ProgramNav /> */}
-            <div>
-                <header className="bg-success text-white text-center py-4">
-                    <h1>Ongoing Projects</h1>
-                    <p>Discover Our Current Initiatives</p>
-                </header>
 
+            <div className=''>
+            <br /><br /><br /><br />
+            <header className="bg-primary text-white text-center py-10 ">
+                <h1>On going projects</h1>
+                <p>Explore Our Comprehensive onging Projects</p>
+            </header>
                 <div className="container mt-4">
                     <div className="row">
                         {projects.map((project, index) => (

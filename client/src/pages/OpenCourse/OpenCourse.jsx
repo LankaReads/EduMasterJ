@@ -36,10 +36,10 @@ const OpenCourse = () => {
   return (
     <>
       <NavBar/>
-      <ProgramNav/>
+      
 
       <div className="d-flex">
-        <StudentNavBar />
+        
         <Container className="open-course-container py-5 ms-auto">
           <Row>
             <Col className="text-center mb-4">

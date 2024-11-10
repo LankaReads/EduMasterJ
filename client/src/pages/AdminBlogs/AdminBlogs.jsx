@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '@/components/navBar/Nav';
 import Footer from '@/components/Footer/footer';
+import AdminNavBar from '@/components/AdminNavBar/AdminNavBar';
 
 function AdminBlog() {
     const [posts, setPosts] = useState([]);
@@ -79,7 +80,8 @@ function AdminBlog() {
 
     return (
         <>
-            <NavBar />
+            <AdminNavBar/>
+            <br /><br /><br />
             <div className="container my-5">
                 <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>Admin - Manage Blog Posts</h1>
 

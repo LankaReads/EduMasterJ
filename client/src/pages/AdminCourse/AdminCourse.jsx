@@ -240,6 +240,7 @@ const AdminCourse = () => {
   return (
     <>
       <AdminNavBar />
+      <br /><br /><br />
       <Container fluid className="main-container">
         <h3 className="text-center text-dark mb-4">Admin Course Management</h3>
         <Button className="mb-4" onClick={handleShowAddCourseModal}>Add New Course</Button>

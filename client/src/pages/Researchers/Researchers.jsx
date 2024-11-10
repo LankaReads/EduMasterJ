@@ -18,12 +18,14 @@ const Researchers = () => {
     return (
         <>
         <NavBar/>
-        <ProgramNav/>
-        <div>
-            <header className="bg-primary text-white text-center py-4">
+        
+        <div className=''>
+            <br /><br /><br /><br />
+            <header className="bg-primary text-white text-center py-10 ">
                 <h1>Client Research</h1>
                 <p>Explore Our Comprehensive Research Projects</p>
             </header>
+            
 
             <div className="container mt-4">
                 <div className="row">

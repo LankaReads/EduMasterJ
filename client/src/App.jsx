@@ -51,7 +51,7 @@ function App() {
         <Route path='/adminblogs' element={<AdminBlog />} />
         <Route path='/researchers' element={<Researchers />} />
         <Route path='/projects' element={<Projects />} />
-        <Route path='/adminposts' element={<AdminPosts />} />        
+        <Route path='/adminposts' element={<AdminPosts />} />       
         <Route path='/post' element={<Posts />} />
         <Route path='/contact' element={<ContactForm />} />
         <Route path='/adminresearch' element={<AdminResearch />} />

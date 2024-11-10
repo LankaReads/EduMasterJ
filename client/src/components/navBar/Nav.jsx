@@ -67,6 +67,12 @@ function NavBar() {
               <Nav.Link href="/blogs" className="nav-link-custom mx-1">
                 <i className="bi bi-chat-square-text me-2"></i> Blogs
               </Nav.Link>
+              <Nav.Link href="/contact" className="nav-link-custom mx-1">
+                <i className="bi bi-chat-square-text me-2"></i> Contact
+              </Nav.Link>
+              <Nav.Link href="/post" className="nav-link-custom mx-1">
+                <i className="bi bi-chat-square-text me-2"></i> Posts
+              </Nav.Link>
 
             </Nav>
           </Navbar.Collapse>

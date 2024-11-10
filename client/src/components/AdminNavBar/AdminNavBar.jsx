@@ -22,8 +22,15 @@ function AdminNavBar() {
             style={{ maxHeight: '180px' }}
             navbarScroll
           >
-            <Nav.Link href="/admincourse">Admin-Courses</Nav.Link>
             <Nav.Link href="/admindashboard">Admin-Home</Nav.Link>
+            <Nav.Link href="/admincourse">Admin-Courses</Nav.Link>
+            <Nav.Link href="/adminblogs">Admin-blog</Nav.Link>
+            <Nav.Link href="/adminposts">Admin-posts</Nav.Link>
+            <Nav.Link href="/adminresearch">Admin-research</Nav.Link>
+            <Nav.Link href="/adminprojects">Admin-projects</Nav.Link>
+            
+            <Nav.Link href="/teacherdashboard">Admin-teacher</Nav.Link>
+            
          
        
           </Nav>

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '@/components/Footer/footer';
 import NavBar from '@/components/navBar/Nav';
 import ProgramNav from '@/components/ProgramNav/ProgramNav';
+import AdminNavBar from '@/components/AdminNavBar/AdminNavBar';
 
 const AdminResearch = () => {
     const [researchersData, setResearchersData] = useState([]);
@@ -78,13 +79,10 @@ const AdminResearch = () => {
 
     return (
         <>
-            <NavBar />
-            <ProgramNav />
-            <div>
-                <header className="bg-primary text-white text-center py-4">
-                    <h1>Admin Research Dashboard</h1>
-                    <p>Manage Research Projects</p>
-                </header>
+            <AdminNavBar/>
+
+            <br/>
+            <div>br <br /><br /><br />
                 <div className="container mt-4">
                     <div className="row">
                         <div className="col-12 mb-4">

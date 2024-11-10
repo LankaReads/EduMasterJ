@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '@/components/Footer/footer';
 import NavBar from '@/components/navBar/Nav';
 import ProgramNav from '@/components/ProgramNav/ProgramNav';
+import AdminNavBar from '@/components/AdminNavBar/AdminNavBar';
 
 const AdminProject = () => {
     const [projectsData, setProjectsData] = useState([]);
@@ -81,13 +82,10 @@ const AdminProject = () => {
 
     return (
         <>
-            <NavBar />
-            <ProgramNav />
+
+        <AdminNavBar/>
             <div>
-                <header className="bg-primary text-white text-center py-4">
-                    <h1>Admin Project Dashboard</h1>
-                    <p>Manage Projects</p>
-                </header>
+                <br /><br />
                 <div className="container mt-4">
                     <div className="row">
                         <div className="col-12 mb-4">
