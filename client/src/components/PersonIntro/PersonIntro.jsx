@@ -1,8 +1,7 @@
 import React from "react";
 import "./PersonIntro.css";
 import { useNavigate } from "react-router-dom";
-
-const eduImage = "https://www.corserva.com/hs-fs/hubfs/software-engineer.png?width=696&name=software-engineer.png";
+import sirImage from "../../assets/sir.jpeg"; // Import the local image
 
 const PersonIntro = () => {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ const PersonIntro = () => {
       <div className="row align-items-center">
         {/* Left Column - Image */}
         <div className="col-lg-5 col-md-6 text-center">
-          <img src={eduImage} alt="AI Engineer" className="intro-image img-fluid rounded-circle shadow-sm" />
+          <img src={sirImage} alt="AI Engineer" className="intro-image img-fluid rounded-circle shadow-sm" />
         </div>
         {/* Right Column - Text Content */}
         <div className="col-lg-7 col-md-6 mt-4 mt-md-0 text-center text-md-start">

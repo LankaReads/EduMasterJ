@@ -1,3 +1,5 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,6 +8,11 @@ import './Nav.css';
 import logo1 from '../../img/logo1.png';
 
 function NavBar() {
+  const location = useLocation();
+
+  // Helper function to add 'active' class based on current path
+  const isActive = (path) => location.pathname === path ? 'active' : '';
+
   return (
     <div className='container-fluid bg-white sticky-top'>
       <Navbar expand="md" className="py-3">
@@ -25,7 +32,7 @@ function NavBar() {
             <Nav className="ms-auto my-2 my-lg-0" navbarScroll style={{ maxHeight: '180px' }}>
 
               {/* Consistent Style for Nav Links */}
-              <Nav.Link href="/" className="nav-link-custom mx-1">
+              <Nav.Link href="/" className={`nav-link-custom mx-1 ${isActive('/')}`}>
                 <i className="bi bi-house-door me-2"></i> Home
               </Nav.Link>
 
@@ -36,7 +43,7 @@ function NavBar() {
                 id="programsDropdown"
               >
                 <NavDropdown.Item href="researchers" className="dropdown-item-custom">
-                  Our Reaserchers
+                  Our Researchers
                 </NavDropdown.Item>
                 <NavDropdown.Item href="courses" className="dropdown-item-custom">
                   Courses
@@ -60,17 +67,19 @@ function NavBar() {
                 </NavDropdown>
               </NavDropdown>
 
-              <Nav.Link href="/about" className="nav-link-custom mx-1">
+              <Nav.Link href="/about" className={`nav-link-custom mx-1 ${isActive('/about')}`}>
                 <i className="bi bi-info-circle me-2"></i> About
               </Nav.Link>
 
-              <Nav.Link href="/blogs" className="nav-link-custom mx-1">
+              <Nav.Link href="/blogs" className={`nav-link-custom mx-1 ${isActive('/blogs')}`}>
                 <i className="bi bi-chat-square-text me-2"></i> Blogs
               </Nav.Link>
-              <Nav.Link href="/contact" className="nav-link-custom mx-1">
+
+              <Nav.Link href="/contact" className={`nav-link-custom mx-1 ${isActive('/contact')}`}>
                 <i className="bi bi-chat-square-text me-2"></i> Contact
               </Nav.Link>
-              <Nav.Link href="/post" className="nav-link-custom mx-1">
+
+              <Nav.Link href="/post" className={`nav-link-custom mx-1 ${isActive('/post')}`}>
                 <i className="bi bi-chat-square-text me-2"></i> Posts
               </Nav.Link>
 

@@ -64,3 +64,8 @@
     border: none; /* Optional: remove borders on mobile for cleaner look */
   }
 }
+.nav-link-custom.active {
+  font-weight: bold;
+  color: #f42d00; /* Your theme color */
+  border-bottom: 2px solid #f42d00; /* Optional underline effect */
+}

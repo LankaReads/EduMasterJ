@@ -38,7 +38,7 @@
   width: 45%; /* Unique width */
   height: 90%; /* Unique height */
   left: 0;
-  top: 5%;
+  top: 10%;
   
 }
 
@@ -47,7 +47,7 @@
   width: 50%; /* Different width */
   height: 75%; /* Different height */
   left:50%;
-  top: 20%;
+  top: 27%;
   
   mix-blend-mode: multiply;
 }
@@ -55,7 +55,6 @@
 /* Centered Title */
 .hero-title {
   position: absolute;
-  top: 50px;
   width: 100%;
   text-align: center;
   z-index: 1;
@@ -64,7 +63,7 @@
 
 .hero-title {
   position: absolute;
-  top: 50px;
+  top: 12px;
   width: 100%;
   text-align: center;
   z-index: 1;
