@@ -33,8 +33,8 @@ function Posts() {
     return (
         <>
             <NavBar />
-            <div className="container my-5">
-                <h1 className="text-center mb-5" style={{ color: '#007BFF' }}>All Posts</h1>
+            <div className="container pt-20">
+                <h1 className="text-center mt-5" style={{ color: '#007BFF' }}>All Posts</h1>
                 <div className="row">
                     {posts.length > 0 ? (
                         posts.map((post) => (

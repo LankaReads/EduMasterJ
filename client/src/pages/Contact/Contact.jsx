@@ -33,8 +33,8 @@ const ContactForm = () => {
   return (
     <>
       <NavBar />
-      <div className="contact-container">
-        <h2>Contact Us</h2>
+      <div className="contact-container pt-20">
+        <h2 className='mt-5' >Contact Us</h2>
         <form onSubmit={handleSubmit} className="contact-form">
           <div className="form-group">
             <label>Name</label>
