@@ -29,7 +29,7 @@ function Blogs() {
             <NavBar />
             
             <div className=" container-blog mt-0 pt-20">
-                <h1 className="text-center mb-5 blog-heading">Our Blogs</h1>
+               {/* <h1 className="text-center mb-5 blog-heading">Our Blogs</h1>*/}
                 <div className="row justify-content-center"> {/* Center the row content */}
                     {posts.length > 0 ? (
                         posts.map((post) => (

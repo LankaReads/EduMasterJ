@@ -35,13 +35,14 @@ const CourseSection = ({ enrolledCourses = [], removeCourse }) => {
     <>
       <div className="container-fluid main-container item-center d-flex justify-content-center">
         <div className="row">
-          <div className="col-md-9 col-lg-8 align-items-center">
+          <div className=" align-items-center">
             <div className="programs-section py-4">
-              <h3 className="text-center text-dark mb-4">Available Programs</h3>
+            <h3 className="text-center text-dark mb-4 titlecourse">Available Programs</h3>
               <div className="row">
                 {courses.map((course) => (
                   !isEnrolled(course._id) && (
                     <div key={course._id} className="col-md-6 col-lg-4 mb-4">
+                      
                       <Card className="h-100 shadow-sm">
                         <Card.Img variant="top" src={course.image} />
                         <Card.Body className="d-flex flex-column">
