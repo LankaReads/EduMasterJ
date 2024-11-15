@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/footer";
 import StudentNavBar from "../../components/StudentNavBar/StudentNavBar";
 import "./OpenCourse.css";
 import LogedNavBar from "@/components/LogedNavBar/LogedNavBar";
+import ProgramNav from "@/components/ProgramNav/ProgramNav";
 
 const OpenCourse = () => {
   const { courseId } = useParams(); // Get courseId from the URL
@@ -34,9 +35,11 @@ const OpenCourse = () => {
 
   return (
     <>
-      <LogedNavBar/>
+      <NavBar/>
+      
+
       <div className="d-flex">
-        <StudentNavBar />
+        
         <Container className="open-course-container py-5 ms-auto">
           <Row>
             <Col className="text-center mb-4">

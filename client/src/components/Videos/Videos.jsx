@@ -5,28 +5,28 @@ import { Button } from 'react-bootstrap';
 function Videos() {
   const videos = [
     {
-      title: "Learning React for Beginners",
-      src: "https://www.youtube.com/embed/w7ejDZ8SWv8",
-      description: "In this video, you will learn the basics of React JS, perfect for beginners!",
-      channelUrl: "https://www.youtube.com/channel/UC8S4rDRZn6Z_StJ-hh7ph8g",
+      title: "AI in Medical Imaging",
+      src: "https://www.youtube.com/embed/iZjWEVkDrHY?si=QWFzLk2e-lCLnvjT", // Placeholder video URL
+      description: "Learn how AI is revolutionizing medical imaging and diagnostic accuracy.",
+      channelUrl: "https://www.youtube.com/channel/medicalimaging",
     },
     {
-      title: "Mastering JavaScript in 2024",
-      src: "https://www.youtube.com/embed/PkZNo7MFNFg",
-      description: "This tutorial covers the key JavaScript concepts for mastering the language in 2024.",
-      channelUrl: "https://www.youtube.com/channel/UCWv7vMbMWH4-V0ZXdmDpPBA",
+      title: "Machine Learning in Healthcare",
+      src: "https://www.youtube.com/embed/TfkHrvct1hg?si=DsO3SCdDPFT-j3s_", // Placeholder video URL
+      description: "Explore machine learning applications in personalized medicine and patient care.",
+      channelUrl: "https://www.youtube.com/channel/healthcareML",
     },
     {
-      title: "AI in Education: The Future",
-      src: "https://www.youtube.com/embed/feHBGKw2RMs",
-      description: "Explore how artificial intelligence is transforming the educational landscape.",
-      channelUrl: "https://www.youtube.com/channel/UCc5di8v4XOKYwrCwQeTImjA",
+      title: "AI for Drug Discovery",
+      src: "https://www.youtube.com/embed/4anbQ9v3xlM?si=nRpzOWKZtH3uBBcb", // Placeholder video URL
+      description: "Understand how AI accelerates the drug discovery process, making treatments accessible.",
+      channelUrl: "https://www.youtube.com/channel/drugdiscoveryAI",
     },
   ];
 
   return (
     <div className="videos-section container-fluid py-5">
-      <h2 className="text-center mb-5">Educational Videos</h2>
+      <h2 className="text-center mb-5 mm">AI in Medicine: Educational Videos</h2>
       <div className="row g-4">
         {videos.map((video, index) => (
           <div key={index} className="col-md-4 d-flex flex-column align-items-center video-card">
@@ -47,7 +47,7 @@ function Videos() {
             <Button
               href={video.channelUrl}
               target="_blank"
-              className="btn btn-primary mt-auto go-channel-btn"
+              className="btn btn-danger mt-auto go-channel-btn"
             >
               Go to Channel
             </Button>

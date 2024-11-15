@@ -1,36 +1,31 @@
 // Researchers.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '@/components/Footer/footer';
 import NavBar from '@/components/navBar/Nav';
-
-const researchersData = [
-    {
-        title: "Research Title 1",
-        description: "Brief description of the research conducted.",
-        imageUrl: "https://via.placeholder.com/350",
-    },
-    {
-        title: "Research Title 2",
-        description: "Brief description of the research conducted.",
-        imageUrl: "https://via.placeholder.com/350",
-    },
-    {
-        title: "Research Title 3",
-        description: "Brief description of the research conducted.",
-        imageUrl: "https://via.placeholder.com/350",
-    },
-];
+import ProgramNav from '@/components/ProgramNav/ProgramNav';
 
 const Researchers = () => {
+    const [researchersData, setResearchersData] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/research")
+            .then((response) => response.json())
+            .then((data) => setResearchersData(data))
+            .catch((error) => console.error("Error fetching data:", error));
+    }, []);
+
     return (
         <>
         <NavBar/>
-        <div>
-            <header className="bg-primary text-white text-center py-4">
+        
+        <div className=''>
+            <br /><br /><br /><br />
+            <header className="bg-primary text-white text-center py-10 ">
                 <h1>Client Research</h1>
                 <p>Explore Our Comprehensive Research Projects</p>
             </header>
+            
 
             <div className="container mt-4">
                 <div className="row">
@@ -41,15 +36,13 @@ const Researchers = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">{research.title}</h5>
                                     <p className="card-text">{research.description}</p>
-                                    <a href="#" className="btn btn-primary">View Details</a>
+                                    <a href={research.link} className="btn btn-primary" target="_blank" rel="noopener noreferrer">View Details</a>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-
-            
         </div>
         <Footer/>
         </>

@@ -12,6 +12,8 @@ import Whatsapp from '../../components/Whatsapp/Whatsapp';
 import Videos from '../../components/Videos/Videos';
 import NavBar from '../../components/navBar/Nav';
 import Section from '@/components/Section/Section';
+import Medisection from '@/components/Medisection/Medisection';
+import PersonIntro from '@/components/PersonIntro/PersonIntro';
 
 function Home() {
   return (
@@ -30,11 +32,13 @@ function Home() {
       
     </div>
     <Hero />
-    
+    <br /><br />
+    <PersonIntro/>
+    <Medisection/>
    <Features />
     <Videos/>
     
-    <Overview />
+    
     
     <ScrollTop/>
     <Whatsapp/>
@@ -43,6 +47,7 @@ function Home() {
 
 
     <Subscription/>
+    <Overview />
     <Footer />
     </>
   )

@@ -1,15 +1,23 @@
 import Footer from '@/components/Footer/footer';
 import NavBar from '@/components/navBar/Nav';
+
+import Subscription from '../../components/Subscription/subscription';
+
 import React, { useState, useEffect } from 'react';
+import './Blogs.css'; // Importing custom CSS for additional styles
+import Section from '@/components/Section/Section';
 
 function Blogs() {
     const [expandedPostId, setExpandedPostId] = useState(null);
     const [posts, setPosts] = useState([]);
 
-    // Load blog posts from localStorage when the component mounts
     useEffect(() => {
-        const storedPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-        setPosts(storedPosts);
+        const fetchPosts = async () => {
+            const response = await fetch('http://localhost:5000/api/blogs');
+            const data = await response.json();
+            setPosts(data);
+        };
+        fetchPosts();
     }, []);
 
     const handleReadMore = (id) => {
@@ -18,25 +26,22 @@ function Blogs() {
 
     return (
         <>
-            <NavBar/>
-            <div className="jumbotron jumbotron-fluid text-white text-center" style={{ backgroundColor: 'lightblue', padding: '100px 0' }}>
-                <div className="container">
-                    <h1 className="display-4">Join Us Today!</h1>
-                    <p className="lead">Become a part of our reading community.</p>
-                </div>
-            </div>
-            <div className="container my-5">
-                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>Our Blog</h1>
-                <div className="row">
-                    {posts && posts.length > 0 ? (
+            <NavBar />
+            
+            <div className=" container-blog mt-0 pt-20">
+               {/* <h1 className="text-center mb-5 blog-heading">Our Blogs</h1>*/}
+                <div className="row justify-content-center"> {/* Center the row content */}
+                    {posts.length > 0 ? (
                         posts.map((post) => (
-                            <div key={post.id} className="col-12 mb-4">
-                                <div className="card h-100 shadow-sm">
-                                    <img src={post.image} className="card-img-top" alt={post.title} />
+                            <div key={post._id} className="col-md-8 mb-4"> {/* Set column width to 8 out of 12 */}
+                                <div className="card shadow-lg border-0">
+                                    <div className="image-container">
+                                        <img src={post.image} className=" full-height-img" alt={post.title} />
+                                    </div>
                                     <div className="card-body">
-                                        <h5 className="card-title">{post.title}</h5>
+                                        <h5 className="card-title-blog">{post.title}</h5>
                                         <p className="card-text">
-                                            {expandedPostId === post.id ? post.content : post.content.substring(0, 100) + '...'}
+                                            {expandedPostId === post._id ? post.content : post.content.substring(0, 100) + '...'}
                                         </p>
                                         <p className="card-text">
                                             <small className="text-muted">By {post.author} on {post.date}</small>
@@ -45,10 +50,10 @@ function Blogs() {
                                     <div className="card-footer d-flex justify-content-between align-items-center">
                                         <button
                                             className="btn btn-outline-primary"
-                                            style={{ borderColor: '#f42d00', color: '#f42d00' }}
-                                            onClick={() => handleReadMore(post.id)}
+                                            style={{ borderColor: '#007BFF', color: '#007BFF' }}
+                                            onClick={() => handleReadMore(post._id)}
                                         >
-                                            {expandedPostId === post.id ? 'Show Less' : 'Read More'}
+                                            {expandedPostId === post._id ? 'Show Less' : 'Read More'}
                                         </button>
                                     </div>
                                 </div>
@@ -58,10 +63,13 @@ function Blogs() {
                         <p className="text-center">No blog posts available.</p>
                     )}
                 </div>
+
+                    <Section/>
+                    <Subscription/>
+
             </div>
-            <Footer/>
-            </>
-            
+            <Footer />
+        </>
     );
 }
 

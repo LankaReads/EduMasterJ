@@ -1,134 +1,174 @@
 import React, { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-
+import NavBar from '@/components/navBar/Nav';
+import Footer from '@/components/Footer/footer';
+import AdminNavBar from '@/components/AdminNavBar/AdminNavBar';
 
 function AdminBlog() {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [image, setImage] = useState('');
-    const [author, setAuthor] = useState('');
     const [posts, setPosts] = useState([]);
+    const [formData, setFormData] = useState({ title: '', content: '', image: '', author: '' });
+    const [editingPostId, setEditingPostId] = useState(null);
 
-    // Load blog posts from localStorage when the component mounts
+    // Fetch posts function
+    const fetchPosts = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/blogs');
+            const data = await response.json();
+            setPosts(data);
+        } catch (error) {
+            console.error("Failed to fetch posts:", error);
+        }
+    };
+
+    // Fetch posts on component mount
     useEffect(() => {
-        const storedPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-        setPosts(storedPosts);
+        fetchPosts();
     }, []);
 
-    // Handle form submission to add a new post
-    const handleFormSubmit = (e) => {
+    // Handle form input changes
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    // Create or update a post
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Create a new post object with a unique ID
-        const newPost = {
-            id: uuidv4(),
-            title,
-            content,
-            image,
-            author,
-            date: new Date().toLocaleDateString(),
-        };
-
-        const updatedPosts = [...posts, newPost];
-        setPosts(updatedPosts);
-
-        // Save the updated posts to localStorage
-        localStorage.setItem('blogPosts', JSON.stringify(updatedPosts));
-
-        // Clear form fields
-        setTitle('');
-        setContent('');
-        setImage('');
-        setAuthor('');
+        try {
+            if (editingPostId) {
+                await fetch(`http://localhost:5000/api/blogs/${editingPostId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                });
+            } else {
+                await fetch('http://localhost:5000/api/blogs', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                });
+            }
+            setFormData({ title: '', content: '', image: '', author: '' });
+            setEditingPostId(null);
+            fetchPosts();
+        } catch (error) {
+            console.error("Failed to save post:", error);
+        }
     };
 
-    // Handle deleting a post
-    const handleDelete = (id) => {
-        const updatedPosts = posts.filter(post => post.id !== id);
-        setPosts(updatedPosts);
-        localStorage.setItem('blogPosts', JSON.stringify(updatedPosts));
+    // Handle editing a post
+    const handleEdit = (post) => {
+        setEditingPostId(post._id);
+        setFormData({ title: post.title, content: post.content, image: post.image, author: post.author });
     };
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+                method: 'DELETE',
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to delete the blog post');
+            }
+    
+            // Refresh the posts list after deletion
+            fetchPosts();
+        } catch (error) {
+            console.error("Failed to delete post:", error);
+        }
+    };
+    
 
     return (
         <>
-            
+            <AdminNavBar/>
+            <br /><br /><br />
             <div className="container my-5">
-                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>Admin Blog Management</h1>
+                <h1 className="text-center mb-5" style={{ color: '#f42d00' }}>Admin - Manage Blog Posts</h1>
 
-                {/* Form to create a new blog post */}
-                <form onSubmit={handleFormSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="title">Title</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="content">Content</label>
-                        <textarea
-                            className="form-control"
-                            id="content"
-                            rows="5"
-                            value={content}
-                            onChange={(e) => setContent(e.target.value)}
-                            required
-                        ></textarea>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="image">Image URL</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="image"
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="author">Author</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="author"
-                            value={author}
-                            onChange={(e) => setAuthor(e.target.value)}
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary" style={{ backgroundColor: '#f42d00', borderColor: '#f42d00' }}>
-                        Add Blog Post
-                    </button>
-                </form>
-
-                {/* Display added blog posts */}
-                <div className="row mt-5">
-                    {posts.length > 0 ? (
-                        posts.map((post) => (
-                            <div key={post.id} className="col-12 mb-4">
-                                <div className="card h-100 shadow-sm">
-                                    <img src={post.image} className="card-img-top" alt={post.title} />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{post.title}</h5>
-                                        <p className="card-text">{post.content}</p>
-                                        <p className="card-text">
-                                            <small className="text-muted">By {post.author} on {post.date}</small>
-                                        </p>
-                                        <button className="btn btn-danger" onClick={() => handleDelete(post.id)}>Delete</button>
-                                    </div>
-                                </div>
+                {/* Blog Post Form */}
+                <div className="card mb-5">
+                    <div className="card-header">{editingPostId ? 'Edit Blog Post' : 'Create New Blog Post'}</div>
+                    <div className="card-body">
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label>Title</label>
+                                <input type="text" name="title" className="form-control" value={formData.title} onChange={handleChange} required />
                             </div>
-                        ))
-                    ) : (
-                        <p className="text-center">No blog posts available. Add some!</p>
-                    )}
+                            <div className="form-group">
+                                <label>Content</label>
+                                <textarea name="content" className="form-control" rows="3" value={formData.content} onChange={handleChange} required />
+                            </div>
+                            <div className="form-group">
+                                <label>Image URL</label>
+                                <input type="text" name="image" className="form-control" value={formData.image} onChange={handleChange} />
+                            </div>
+                            <div className="form-group">
+                                <label>Author</label>
+                                <input type="text" name="author" className="form-control" value={formData.author} onChange={handleChange} required />
+                            </div>
+                            <button type="submit" className="btn btn-primary mt-3" style={{ backgroundColor: '#f42d00' }}>
+                                {editingPostId ? 'Update Post' : 'Create Post'}
+                            </button>
+                            {editingPostId && (
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary mt-3 ml-3"
+                                    onClick={() => {
+                                        setEditingPostId(null);
+                                        setFormData({ title: '', content: '', image: '', author: '' });
+                                    }}
+                                >
+                                    Cancel
+                                </button>
+                            )}
+                        </form>
+                    </div>
+                </div>
+
+                {/* Table of Blog Posts */}
+                <h2 className="text-center mb-4">Existing Blog Posts</h2>
+                <div className="table-responsive">
+                    <table className="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {posts.map((post) => (
+                                <tr key={post._id}>
+                                    <td>
+                                        <img src={post.image} alt={post.title} style={{ width: '80px', height: '60px', objectFit: 'cover' }} />
+                                    </td>
+                                    <td>{post.title}</td>
+                                    <td>{post.author}</td>
+                                    <td>{new Date(post.date).toLocaleDateString()}</td>
+                                    <td>
+                                        <button
+                                            className="btn btn-outline-primary btn-sm mr-2"
+                                            style={{ borderColor: '#f42d00', color: '#f42d00' }}
+                                            onClick={() => handleEdit(post)}
+                                        >
+                                            Edit
+                                        </button>
+                                        <button
+                                            className="btn btn-outline-danger btn-sm"
+                                            onClick={() => handleDelete(post._id)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            
-            
+            <Footer />
         </>
     );
 }

@@ -1,9 +1,6 @@
-/* Section.css */
-
-/* Light mode styles */
 .section-container {
   padding: 60px 0;
-  background-color: #f8f9fa;
+  background-color: #f0f8ff; /* Light background color */
 }
 
 .card {
@@ -42,30 +39,4 @@
 .card-text {
   font-size: 0.875rem;
   margin-bottom: 1rem;
-}
-
-.h222 {
-  color: red;
-}
-
-/* Dark mode styles */
-body.dark-mode .section-container {
-  background-color: #343a40; /* Dark background color for dark mode */
-}
-
-body.dark-mode .card {
-  background-color: #495057; /* Dark card background */
-  border: 1px solid #6c757d; /* Optional: add a border for better visibility */
-}
-
-body.dark-mode .card-title {
-  color: #f8f9fa; /* Light color for card titles in dark mode */
-}
-
-body.dark-mode .card-text {
-  color: #dee2e6; /* Light color for card text in dark mode */
-}
-
-body.dark-mode .h222 {
-  color: #ff6f6f; /* Optional: lighter color for better visibility in dark mode */
 }
